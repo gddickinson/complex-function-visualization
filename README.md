@@ -113,3 +113,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Inspired by the visual beauty of complex analysis
 - Built using NumPy and Matplotlib
 - Domain coloring techniques based on mathematical visualization research
+
+---
+*Built with AI assistance from [Claude (Anthropic)](https://claude.com/).*
