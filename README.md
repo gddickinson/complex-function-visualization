@@ -77,7 +77,8 @@ The program generates two types of files:
 ### Phase Plot
 - Shows the argument (angle) of the complex output
 - Uses a custom HSV colormap for continuous color transitions
-- Full cycle of colors represents 2π radians
+- Full cycle of colors represents 2π radians (fixed scale 0..1 for arg/(2π) + 0.5)
+- Imaginary axis points up (images use `origin='lower'`; the example PNG/GIF files predate this fix and are mirrored)
 
 ### Magnitude Plot
 - Shows the absolute value of the complex output
@@ -95,6 +96,36 @@ Here's how the visualizations look for different functions:
 2. For `f(z) = exp(z)`:
    - Phase plot shows horizontal color bands
    - Magnitude plot shows exponential growth in the real direction
+
+## Web interface
+
+**Live site: https://gddickinson.github.io/complex-function-visualization/** (static, runs entirely in the browser)
+
+The web version is the visualizer itself: `complex_visualizer/web/static/complex_engine.js` ports the eight functions,
+the grid, the transform, the animation formula and the matplotlib colour lookup to JavaScript, and draws on a canvas.
+
+- **Explorer**: phase and log-magnitude plots of any function over any square range and grid size, with a pointer
+  readout of z and f(z), PNG download.
+- **Animation**: the identity-to-f transformation, frame by frame (frames, grid size, play/pause/step).
+- **Gallery**: all eight functions side by side, linking to the PNG/GIF files saved in this repository.
+- **Cross-check**: the JS engine compared with `ComplexVisualizer.transform_complex` run by NumPy, grid by grid.
+
+| | |
+|---|---|
+| ![Home](docs/img/home.png) | ![Explorer](docs/img/explore.png) |
+| ![Animation](docs/img/animate.png) | ![Gallery](docs/img/gallery.png) |
+
+### Run the web app
+
+```bash
+pip install -r requirements-web.txt
+python run_web.py                      # http://127.0.0.1:8152
+python -m pytest -q tests/test_web.py  # API, static build, JS engine vs Python (needs node for the engine test)
+python scripts/build_static.py         # export the static site to site/ (GitHub Pages builds this on push to main)
+```
+
+The local app adds Python-computed cross-checks on any grid. The JS engine is tested against reference values made by
+the Python package (`python scripts/make_engine_fixture.py --write` regenerates `tests/fixtures/engine_fixture.json`).
 
 ## Contributing
 

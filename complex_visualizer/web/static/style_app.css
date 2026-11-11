@@ -1,0 +1,28 @@
+/* Complex Function Visualizer: hue-wheel accents on the shared neon theme, plus page styles. */
+:root { --accent:#46e3ff; --accent2:#ff4fd8; --accent3:#ffd23f; --glow:rgba(70,227,255,.14); }
+button, .btn, .seg button.on { color:#031318; }
+a { color:var(--accent); }
+.mark { border-color:var(--accent2); box-shadow:0 0 12px var(--accent2), inset 0 0 0 4px var(--bg), inset 0 0 0 9px var(--accent3); }
+.heroplate { align-items:center; }
+.fig { margin:0; } .fig canvas, .fig img { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:6px; background:#fff; }
+.heroplate .fig canvas { max-width:420px; margin:0 auto; }
+.fig figcaption { margin-top:6px; }
+.door b { color:var(--accent); }
+/* explorer / animation layout: controls left, plots right */
+.sim { display:grid; grid-template-columns:290px 1fr; gap:20px; align-items:start; margin-top:14px; }
+.sim .controls { background:rgba(11,12,26,.92); border:1px solid var(--line); border-radius:6px; padding:10px 16px 16px; position:sticky; top:84px; }
+.sim .view canvas { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:6px; background:#07080f; touch-action:none; }
+.plots { gap:12px; }
+.rangebox > * { min-width:0; }
+.seg { margin:8px 0 2px; } .seg button { padding:5px 8px; font-size:11px; text-transform:none; }
+.readout { font:13px var(--mono); background:rgba(3,5,10,.9); border:1px solid var(--line); border-radius:4px; padding:10px 12px; margin-top:12px; }
+.readout div { display:flex; justify-content:space-between; gap:10px; } .readout b { color:var(--accent); text-align:right; }
+/* gallery and cross-check */
+.gal .pair { display:grid; grid-template-columns:1fr 1fr; gap:6px; margin:10px 0 4px; }
+.gal canvas { width:100%; height:auto; aspect-ratio:1; display:block; border-radius:4px; background:#fff; }
+table.check canvas { width:72px; height:72px; display:block; border-radius:3px; background:#fff; }
+@media (max-width:1000px) { .plots { grid-template-columns:1fr; } }
+@media (max-width:860px) {
+  .sim, .heroplate { grid-template-columns:1fr; } .sim .controls { position:static; } .sim .view { order:-1; }
+}
+.sim .view.single canvas { max-width:620px; }

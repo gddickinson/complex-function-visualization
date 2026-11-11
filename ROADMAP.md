@@ -21,7 +21,7 @@ A single-file Python tool (`complex-visualizer.py`) creating domain coloring vis
 - [ ] Add conformal grid overlay to visualize angle preservation
 
 ## Long-term Vision
-- [ ] Build an interactive web version using Plotly or WebGL shaders
+- [x] Build an interactive web version (done with a JS port + canvas instead of Plotly/WebGL: `complex_visualizer/web/`)
 - [ ] Add Julia set and Mandelbrot set visualization modes
 - [ ] Implement iterated function system visualization
 - [ ] Support vector field visualization (real and imaginary parts as arrows)
