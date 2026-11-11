@@ -75,5 +75,42 @@ class TestComplexVisualizer(unittest.TestCase):
         self.assertAlmostEqual(abs(center), 0.0, places=5)
 
 
+class TestPlotOutput(unittest.TestCase):
+    """The drawn images: imaginary axis pointing up and phase colours on a fixed full-turn scale."""
+
+    def _images(self, draw):
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        shown = []
+        real_show = plt.show
+        def fake_show(*a, **k):
+            fig = plt.gcf()
+            fig.canvas.draw()  # runs the first animation frame too
+            shown.extend(im for ax in fig.axes for im in ax.images)
+        plt.show = fake_show
+        try:
+            draw(ComplexVisualizer(size=9))
+        finally:
+            plt.show = real_show
+            plt.close("all")
+        return shown
+
+    def _domain(self):
+        return self._images(lambda v: v.plot_domain_coloring(lambda z: cmath.exp(z), "exp"))
+
+    def _anim(self):
+        return self._images(lambda v: v.create_transformation_animation(lambda z: z**2, frames=2))
+
+    def test_domain_coloring_imaginary_axis_points_up(self):
+        ims = self._domain()
+        self.assertEqual(len(ims), 2)
+        for im in ims:
+            self.assertEqual(im.origin, "lower", "row 0 holds Im(z) = y_min and must be drawn at the bottom")
+
+    def test_animation_imaginary_axis_points_up(self):
+        self.assertEqual(self._anim()[-1].origin, "lower")
+
+
 if __name__ == "__main__":
     unittest.main()
