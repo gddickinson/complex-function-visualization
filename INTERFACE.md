@@ -39,7 +39,6 @@ complex-function-visualiser/
   SESSION_LOG.md               # Work log
   _archive/
     complex-visualizer.py      # Original single-file version (archived)
-  complex-visualizer.py        # Second copy of the original single-file version (not imported)
   complex_visualizer.py        # Entry-point wrapper (python complex_visualizer.py)
   test_complex_visualizer.py   # Unit tests
   requirements.txt             # numpy, matplotlib

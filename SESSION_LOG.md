@@ -45,3 +45,7 @@
 - Removed the "images predate the fixes" notes from README, the About, Gallery and Cross-check pages; the copy of
   `complex_vis_f_z_exp_z.png` used by the Cross-check page is the new one.
 - The duplicate root `complex-visualizer.py` (= `_archive/`) is left as is (no decision yet).
+
+## 2026-11-11 (later) — duplicate script removed (George approved)
+- Deleted the root `complex-visualizer.py`, byte-identical to `_archive/complex-visualizer.py`; nothing imported or ran
+  it (only docs mentioned it). INTERFACE.md updated; the archived copy remains.
