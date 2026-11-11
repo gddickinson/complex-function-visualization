@@ -52,7 +52,7 @@ class ComplexVisualizer:
 
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 7))
 
-        im1 = ax1.imshow(phase, cmap=self.phase_cmap, extent=[*self.x_range, *self.y_range], origin='lower')
+        im1 = ax1.imshow(phase, cmap=self.phase_cmap, vmin=0, vmax=1, extent=[*self.x_range, *self.y_range], origin='lower')
         ax1.set_title(f'{title}\nPhase Visualization')
         plt.colorbar(im1, ax=ax1, label='Phase')
 
@@ -79,7 +79,7 @@ class ComplexVisualizer:
             W = self.Z + t * (self.transform_complex(func) - self.Z)
             phase = np.angle(W) / (2 * np.pi) + 0.5
             ax.clear()
-            ax.imshow(phase, cmap=self.phase_cmap, extent=[*self.x_range, *self.y_range], origin='lower')
+            ax.imshow(phase, cmap=self.phase_cmap, vmin=0, vmax=1, extent=[*self.x_range, *self.y_range], origin='lower')
             ax.set_title(f'Complex Transformation Animation\nt = {t:.2f}')
 
         anim = FuncAnimation(fig, animate, frames=frames, interval=50)

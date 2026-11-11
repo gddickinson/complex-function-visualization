@@ -112,5 +112,16 @@ class TestPlotOutput(unittest.TestCase):
         self.assertEqual(self._anim()[-1].origin, "lower")
 
 
+    def test_domain_coloring_phase_uses_full_turn_scale(self):
+        """One full cycle of hue is 2*pi of phase (README), not the min..max of the plotted values."""
+        im = self._domain()[0]
+        self.assertEqual((im.norm.vmin, im.norm.vmax), (0.0, 1.0))
+        sqrt_im = self._images(lambda v: v.plot_domain_coloring(lambda z: cmath.sqrt(z), "sqrt"))[0]
+        self.assertEqual((sqrt_im.norm.vmin, sqrt_im.norm.vmax), (0.0, 1.0))
+
+    def test_animation_phase_uses_full_turn_scale(self):
+        im = self._anim()[-1]
+        self.assertEqual((im.norm.vmin, im.norm.vmax), (0.0, 1.0))
+
 if __name__ == "__main__":
     unittest.main()
