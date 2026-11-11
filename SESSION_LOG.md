@@ -31,3 +31,17 @@
 - Cross-check page: JS vs `transform_complex` over 8 functions, max relative difference ~5e-16.
 - Verified: pytest (web + existing), screenshots.py on all routes for the static build and the running server, phone
   width 390 px without overflow, every file < 500 lines.
+
+## 2026-11-11 (later) — example images regenerated (George approved)
+- All 8 `complex_vis_*.png` and 3 `complex_anim_*.gif` were regenerated with the fixed code by running the repo's CLI
+  headless (`complex_visualizer.cli.main()` with the Agg backend; defaults: size 500, 50 frames, range -2..2, same file
+  names). Spot checks: frame 0 of the z² GIF (the identity f(z) = z) is purple at the top (arg = π/2, positive imaginary
+  axis), green-yellow at the bottom, cyan right, red left; the exp(z) PNG runs from magenta at Im z = 2 down to yellow at
+  Im z = -2 with a 0..1 colour bar.
+- Size: before 18.1 MB (GIFs 15.6 MB, 2000×2000 px; PNGs 2.5 MB). The old GIFs were 2000 px because the macOS backend
+  doubles figure dpi on a Retina display, and an older Pillow wrote them with a ~91-colour palette. With Pillow 13
+  (256-colour palette) 2000 px GIFs came to 57 MB, so the GIFs were rendered at the code's nominal figure dpi (100):
+  1000×1000 px, 50 frames, 50 ms, looping. After: ~22.7 MB total (GIFs 20.2 MB, PNGs 2.5 MB at the code's dpi=300).
+- Removed the "images predate the fixes" notes from README, the About, Gallery and Cross-check pages; the copy of
+  `complex_vis_f_z_exp_z.png` used by the Cross-check page is the new one.
+- The duplicate root `complex-visualizer.py` (= `_archive/`) is left as is (no decision yet).

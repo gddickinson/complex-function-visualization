@@ -30,9 +30,7 @@ route('gallery', async () => {
       <p class="small"><a href="#/explore?f=${f.key}">Explore</a> · <a href="#/animate?f=${f.key}">Animate</a>
       · <a href="${REPO}${encodeURIComponent(`complex_vis_${f.file_stem}.png`)}" target="_blank" rel="noopener">saved PNG</a>
       ${f.cli_animated ? `· <a href="${REPO}${encodeURIComponent(`complex_anim_${f.file_stem}.gif`)}" target="_blank" rel="noopener">saved GIF</a>` : ''}</p>
-    </div>`)}</div>
-  <p class="small mute">The saved PNG and GIF files in the repository were rendered before the orientation and phase-scale
-  fixes of November 2026 (see About), so they are mirrored top-to-bottom relative to these thumbnails.</p>`;
+    </div>`)}</div>`;
   const grid = E.makeGrid(n);
   const cache = {};
   app().querySelectorAll('canvas[data-k]').forEach(cv => {

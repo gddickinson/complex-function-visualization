@@ -78,7 +78,7 @@ The program generates two types of files:
 - Shows the argument (angle) of the complex output
 - Uses a custom HSV colormap for continuous color transitions
 - Full cycle of colors represents 2π radians (fixed scale 0..1 for arg/(2π) + 0.5)
-- Imaginary axis points up (images use `origin='lower'`; the example PNG/GIF files predate this fix and are mirrored)
+- Imaginary axis points up (images use `origin='lower'`)
 
 ### Magnitude Plot
 - Shows the absolute value of the complex output

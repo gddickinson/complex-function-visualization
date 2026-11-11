@@ -35,7 +35,7 @@ route('about', async () => {
   <code>visualizer.py</code>: the images were drawn with matplotlib's default <code>origin='upper'</code>, so every plot was
   mirrored in the real axis relative to its labels; and the phase colours were autoscaled to each image's data range, so
   a hue did not always mean the same phase (sqrt(z), whose phase spans half a turn, was stretched over the whole colour
-  wheel). The example PNG/GIF files committed in the repository predate the fix.</div>
+  wheel). The example PNG/GIF files in the repository were regenerated with the fixed code.</div>
   <h2>Run it yourself</h2>
   <h3>Desktop program</h3>
   <pre>pip install numpy matplotlib

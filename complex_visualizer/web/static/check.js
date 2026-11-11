@@ -59,13 +59,10 @@ route('check', async () => {
   <div id="res"><p class="mute">Comparing...</p></div>
   <h2>A saved image from the repository</h2>
   <div class="two">
-    <figure class="fig"><img src="static/img/complex_vis_f_z_exp_z.png" alt="complex_vis_f_z_exp_z.png: phase and magnitude of exp(z) as saved by the Python program before the fixes" loading="lazy">
-      <figcaption class="small mute"><code>complex_vis_f_z_exp_z.png</code> as committed (rendered before the fixes): the
-      phase panel is mirrored top-to-bottom (its top edge, labelled Im z = 2, shows the phase at Im z = −2) and its colours
-      are stretched to the data range 0.18–0.82.</figcaption></figure>
+    <figure class="fig"><img src="static/img/complex_vis_f_z_exp_z.png" alt="complex_vis_f_z_exp_z.png: phase and magnitude of exp(z) as saved by the Python program" loading="lazy">
+      <figcaption class="small mute"><code>complex_vis_f_z_exp_z.png</code> as saved by the Python program (<code>python complex_visualizer.py</code>).</figcaption></figure>
     <figure class="fig"><canvas id="fixed" width="620" height="580" role="img" aria-label="Phase of exp(z) drawn by the JS engine"></canvas>
-      <figcaption class="small mute">The same phase panel from the fixed code path (JS engine): bands of constant Im z,
-      hue = phase on a full turn, Im z increasing upwards.</figcaption></figure>
+      <figcaption class="small mute">The same phase panel drawn by the JS engine: bands of constant Im z, hue = phase on a full turn, Im z increasing upwards.</figcaption></figure>
   </div>`;
   const n = 300, W = E.transform(E.byKey('exp').f, E.makeGrid(n));
   drawPlot($('#fixed'), { ...E.image(W, 'phase', S.luts.phase, n), size: n, range: [-2, 2], title: 'f(z) = exp(z) · Phase',
