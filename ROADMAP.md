@@ -6,7 +6,7 @@ A single-file Python tool (`complex-visualizer.py`) creating domain coloring vis
 ## Short-term Improvements
 - [x] Add `requirements.txt` (numpy, matplotlib)
 - [x] Rename `complex-visualizer.py` to `complex_visualizer.py` for valid Python import
-- [x] Split into modules: `functions.py` (function definitions), `colormap.py` (HSV mapping), `visualizer.py` (plotting), `animator.py` (GIF generation), `cli.py`
+- [x] Split into modules: `functions.py` (function definitions), `colormap.py` (HSV mapping), `visualizer.py` (plotting and GIF animation; there is no separate `animator.py`), `cli.py`
 - [x] Add CLI arguments for function selection, resolution, output directory, and range
 - [ ] Add docstrings explaining domain coloring and phase/magnitude visualization
 - [x] Handle singularities gracefully (division by zero, branch cuts)
@@ -29,7 +29,9 @@ A single-file Python tool (`complex-visualizer.py`) creating domain coloring vis
 - [ ] Add LaTeX rendering of function expressions on plots
 
 ## Technical Debt
-- [x] Generated PNG and GIF files clutter the project root -- add `.gitignore` and output to `output/`
+- [ ] Generated PNG and GIF files clutter the project root -- add `.gitignore` and output to `output/`
+  (partly done: `--output-dir` exists, but its default is the current directory and the example
+  PNG/GIF files are committed at the root)
 - [x] Hyphenated filename prevents Python import -- rename immediately
 - [x] Animation frame count (50) and resolution (500) are hardcoded -- extract to constants or config
 - [ ] Color mapping function likely duplicates matplotlib colormaps -- evaluate if custom HSV map is needed

@@ -12,10 +12,10 @@ complex-function-visualiser/
     cli.py                     # CLI entry point with argparse
   _archive/
     complex-visualizer.py      # Original single-file version (archived)
+  complex-visualizer.py        # Second copy of the original single-file version (not imported)
   complex_visualizer.py        # Entry-point wrapper (python complex_visualizer.py)
   test_complex_visualizer.py   # Unit tests
   requirements.txt             # numpy, matplotlib
-  .gitignore                   # Ignores *.png, *.gif, output/
   ROADMAP.md
   INTERFACE.md                 # This file
   README.md
